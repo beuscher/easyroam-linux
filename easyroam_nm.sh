@@ -47,7 +47,7 @@ p12name=$(basename "$p12file")
 # Select network interface
 interfaces=()
 for iface in $(ls /sys/class/net/); do
-    if iw dev "$iface" info &>/dev/null; then
+    if nmcli device show "$iface" &>/dev/null; then
         interfaces+=("$iface")
     fi
 done
